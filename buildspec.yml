@@ -10,12 +10,15 @@ phases:
     commands:
       - echo Installing source NPM dependencies...
       - npm install
-      - npm install -D typescript
+      - npm install -g typescript
       
   build:
     commands:
       - echo Build started on `date`
       - npm run build
+      - npm prune --production
+      - npm start
+     
   post_build:
      commands:
       - aws s3 cp node_modules s3://${S3_BUCKET} --recursive
@@ -26,7 +29,7 @@ phases:
 artifacts:
   files:
       - '**/*'
-      - '!node_modules/**'
-  base-directory: 'node_modules/*'
+   
+  base-directory: 'dist*'
   discard-paths: yes
     
