@@ -3,8 +3,8 @@ os: linux
 
 resources:
   - app:
-      source: /path/to/application
-      destination: /var/www/myapp
+      source: /TypeScript-Node-Starter
+      destination: /var/www/html
 
 hooks:
   BeforeInstall:
