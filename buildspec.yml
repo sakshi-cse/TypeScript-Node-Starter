@@ -1,9 +1,6 @@
 version: 0.2
-
 phases:
   install:
-    runtime-versions:
-      nodejs: 14
     commands:
       - npm install
 
@@ -11,9 +8,13 @@ phases:
     commands:
       - npm run build
 
+  post_build:
+    commands:
+      - npm test
 artifacts:
   files:
     - '**/*'
+    - '!node_modules/**'
 
 cache:
   paths:
