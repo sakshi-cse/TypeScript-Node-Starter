@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Go to the application directory
-cd /var/www/myapp
+cd /var/www/html//TypeScript-Node-Starter
 
 # Install TypeScript globally (if not already installed)
 npm install -g typescript
