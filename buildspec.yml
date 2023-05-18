@@ -1,21 +1,32 @@
 version: 0.2
+env:
+  variables:
+    S3_BUCKET: "angular-site-first-12"
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
     commands:
+      - echo Installing source NPM dependencies...
       - npm install
-
+      - npm install -D typescript
+      
   build:
     commands:
+      - echo Build started on `date`
       - npm run build
-
   post_build:
-    commands:
-      - npm test
+     commands:
+      - aws s3 cp node_modules s3://${S3_BUCKET} --recursive
+      - echo Build completed on `date`
+     
+    
+      
 artifacts:
   files:
-    - '**/*'
-    - '!node_modules/**'
-
-cache:
-  paths:
-    - 'node_modules/'
+      - '**/*'
+      - '!node_modules/**'
+  base-directory: 'node_modules/*'
+  discard-paths: yes
+    
