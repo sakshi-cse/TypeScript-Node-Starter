@@ -3,7 +3,7 @@ os: linux
 
 resources:
   - app:
-      source: /index.js
+      source: /nodejs/index.js
       destination: /var/www/html
 
 hooks:
