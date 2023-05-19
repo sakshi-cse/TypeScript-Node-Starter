@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: /
+  - source: s3://angular-site-first-12/nodejs
     destination: /var/www/html
 
 permissions:
