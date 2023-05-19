@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: s3://angular-site-first-12/nodejs
+  - source: /
     destination: /var/www/html
 
 hooks:
