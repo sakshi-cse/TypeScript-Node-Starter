@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Go to the application directory
-cd /var/www/html
+cd /var/www/html/dist
 
 # Start the Node.js server
-npm start
+pm2 start server.js
